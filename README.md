@@ -101,6 +101,7 @@ Edit the introductory paragraphs directly. The Research Interests block is insid
 Search for `<section id="education">`. Update the university, degree, department, and dates inside `.timeline-item`.
 
 To add another education entry, duplicate the complete `<article class="timeline-item">...</article>` block.
+Each entry can include a university logo using `.education-logo`. The current Sichuan University logo is stored at `assets/logo-SCU.png`.
 
 ### Publications
 

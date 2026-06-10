@@ -370,13 +370,24 @@ p {
 }
 
 .timeline-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
+  gap: 18px;
   padding: 17px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}
+
+.education-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.education-content {
+  min-width: 0;
+  padding-top: 3px;
 }
 
 .timeline-item p {
@@ -387,6 +398,7 @@ p {
 
 .timeline-item time {
   flex: 0 0 auto;
+  padding-top: 4px;
   color: var(--muted);
   font-family: var(--serif);
   font-size: 14px;
@@ -732,8 +744,18 @@ footer p {
   }
 
   .timeline-item {
-    flex-direction: column;
-    gap: 5px;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 10px 14px;
+  }
+
+  .education-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .timeline-item time {
+    grid-column: 2;
+    padding-top: 0;
   }
 
   .publication {
