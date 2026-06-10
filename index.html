@@ -16,7 +16,7 @@
       <a class="home-link" href="#top">Homepage</a>
       <div class="nav-links">
         <a href="#about">About Me</a>
-        <a href="#education">Educations</a>
+        <a href="#education">Education</a>
         <!-- Enable this link together with the commented News section below.
         <a href="#news">News</a>
         -->
@@ -30,7 +30,7 @@
 
   <div class="page-layout" id="top">
     <aside class="sidebar" aria-label="Profile">
-      <img class="profile-photo" src="assets/profile-photo.jpg" alt="Portrait of Junkun Chen">
+      <img class="profile-photo" src="assets/profile-photo-life.png" alt="Portrait of Junkun Chen">
 
       <div class="profile-heading">
         <h1>Junkun Chen</h1>
@@ -39,7 +39,7 @@
 
       <p class="role">Undergraduate Student</p>
       <p class="affiliation">
-        School of Computer Science<br>
+        College of Computer Science<br>
         Sichuan University
       </p>
 
@@ -56,28 +56,38 @@
             <span>GitHub</span>
           </a>
         </li>
-        <li>
-          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-6 10 6-10 6zM6 12v5c3 2.7 9 2.7 12 0v-5M21 10v6"></path></svg>
-            <span>Google Scholar</span>
-          </a>
-        </li>
-        <li>
+<!--        <li>-->
+<!--          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">-->
+<!--            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-6 10 6-10 6zM6 12v5c3 2.7 9 2.7 12 0v-5M21 10v6"></path></svg>-->
+<!--            <span>Google Scholar</span>-->
+<!--          </a>-->
+<!--        </li>-->
+        <li class="qr-contact">
           <a href="https://www.xiaohongshu.com/" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M7 9h10M7 13h7M7 17h4"></path></svg>
             <span>RedNote</span>
           </a>
+          <div class="qr-popover" aria-hidden="true">
+            <img src="assets/QR-rednote.jpg" alt="">
+            <strong>RedNote</strong>
+            <span>Scan to view my profile</span>
+          </div>
         </li>
-        <li>
+        <li class="qr-contact">
           <button class="contact-button" type="button" data-copy="elio2308" aria-label="Copy WeChat ID elio2308">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 10.5c0 3.6-3 6.5-6.7 6.5-1 0-1.9-.2-2.7-.6L2 18l1-2.8a6.2 6.2 0 0 1-1.8-4.4c0-3.6 3-6.5 6.7-6.5s6.6 2.7 6.6 6.2z"></path><path d="M10.5 13.5c.3 3 2.9 5.3 6.1 5.3.9 0 1.7-.2 2.4-.5l2.7 1.3-.8-2.4a5.5 5.5 0 0 0 1.6-3.8c0-3.2-2.7-5.8-6-5.8-.8 0-1.5.1-2.2.4"></path></svg>
             <span class="contact-label">WeChat</span>
           </button>
+          <div class="qr-popover" aria-hidden="true">
+            <img src="assets/QR-wechat.jpg" alt="">
+            <strong>WeChat</strong>
+            <span>Scan or click to copy elio2308</span>
+          </div>
         </li>
       </ul>
 
       <p class="copy-feedback" role="status" aria-live="polite"></p>
-      <p class="contact-note">
+      <p class="contact-note" hidden="hidden">
         Google Scholar and RedNote currently link to their platform homepages. Click WeChat to copy the ID.
       </p>
     </aside>
@@ -86,31 +96,26 @@
       <section id="about">
         <h2><span aria-hidden="true">👋</span> About Me</h2>
         <p>
-          Hello! I am Junkun Chen, a 2023-entry undergraduate student at the School of Computer Science,
-          Sichuan University. I am building a solid foundation in computer science while exploring areas
-          that connect intelligent systems with practical applications.
-        </p>
-        <p>
-          This website documents my education, projects, publications, and other milestones. More details
-          will be added as my studies progress.
+          I am Junkun Chen (<span class="name-cn">陈峻堃</span>), an undergraduate student in Computer Science at
+          Sichuan University. My current work explores how deep learning and graph representation learning
+          can support bioinformatics and scientific discovery.
         </p>
 
         <div class="subsection" id="research-interests">
           <h3><span aria-hidden="true">💡</span> Research Interests</h3>
           <p>
-            My current interests include artificial intelligence, machine learning, software development,
-            and using technology to solve real-world problems. These interests are still evolving as I gain
-            more research and project experience.
+            My research interests include <strong>bioinformatics, graph representation learning,
+            AI for Science (AI4Science), and large language models</strong>.
           </p>
         </div>
       </section>
 
       <section id="education">
-        <h2><span aria-hidden="true">📖</span> Educations</h2>
+        <h2><span aria-hidden="true">📖</span> Education</h2>
         <article class="timeline-item">
           <div>
             <h3>Sichuan University</h3>
-            <p>Undergraduate Student, School of Computer Science</p>
+            <p>Undergraduate Student, College of Computer Science</p>
           </div>
           <time datetime="2023">2023 – Present</time>
         </article>
@@ -134,26 +139,106 @@
 
       <section id="publications">
         <h2><span aria-hidden="true">📝</span> Publications</h2>
-        <div class="empty-state">
-          <p>No publications yet.</p>
-          <span>This section will be updated with future research work.</span>
-        </div>
+        <article class="publication">
+          <div class="publication-image">
+            <img src="papers/SSRA-MDA.png" alt="Conceptual overview of the SSRA-MDA framework">
+          </div>
+          <div class="publication-content">
+            <div class="publication-meta">
+              <span class="status-badge">Under Review</span>
+              <span>2026</span>
+            </div>
+            <h3>SSRA-MDA: A Multi-View Deep Learning Framework for Microbe-Disease Association Prediction via Structural-Semantic Representation Alignment</h3>
+            <p class="publication-authors"><strong>Junkun Chen, Hengchuang Yin, Wei Ju, Lun Hu</strong></p>
+            <p class="publication-venue">
+              Submitted to <a href="https://academic.oup.com/bioinformatics" target="_blank" rel="noreferrer">Bioinformatics</a>.
+            </p>
+          </div>
+        </article>
       </section>
 
       <section id="awards">
         <h2><span aria-hidden="true">🏆</span> Honors &amp; Awards</h2>
-        <div class="empty-state">
-          <p>No entries yet.</p>
-          <span>Academic honors, scholarships, and competition awards will appear here.</span>
-        </div>
+        <ol class="award-list">
+          <li>
+            <div>
+              <h3>National College Student Mathematical Contest in Modeling</h3>
+              <p>National Second Prize</p>
+            </div>
+            <time datetime="2025-09">2025-09</time>
+          </li>
+
+          <li>
+            <div>
+              <h3>National English Competition for College Students</h3>
+              <p>Second Prize</p>
+            </div>
+            <time datetime="2024-05">2024-05</time>
+          </li>
+
+          <li>
+            <div>
+              <h3>College Campus Singer Competition</h3>
+              <p>Second Prize</p>
+            </div>
+            <time datetime="2026-04">2026-04</time>
+          </li>
+          
+          <li>
+            <div>
+              <h3>First-Class Comprehensive Scholarship</h3>
+              <p>Sichuan University</p>
+            </div>
+            <time datetime="2023">2023</time>
+          </li>
+
+          <li>
+            <div>
+              <h3>Yanbao Scholarship</h3>
+            </div>
+            <time datetime="2025-11">2025-11</time>
+          </li>
+
+          <li>
+            <div>
+              <h3>Outstanding Student Leader</h3>
+            </div>
+            <time datetime="2024-10">2024-10</time>
+          </li>
+
+          <li>
+            <div>
+              <h3>Outstanding Student in Academic Competitions</h3>
+            </div>
+            <time datetime="2026-05">2026-05</time>
+          </li>
+          
+        </ol>
       </section>
 
       <section id="personal-hobbies">
         <h2><span aria-hidden="true">🌿</span> Personal Hobbies</h2>
-        <p>
-          Outside of academics, I enjoy working out, singing, hiking, and traveling.
-          These activities help me stay energetic, explore new places, and maintain a balanced lifestyle.
+        <p class="hobby-intro">
+          Life outside academics matters just as much. I enjoy activities that keep me expressive, active,
+          and curious about the world.
         </p>
+        <div class="hobby-grid">
+          <article>
+            <span aria-hidden="true">🎤</span>
+            <h3>Singing</h3>
+            <p>Music is my favorite way to relax, connect with people, and enjoy the stage.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">💪</span>
+            <h3>Fitness</h3>
+            <p>Regular workouts help me stay disciplined, energetic, and ready for new challenges.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">⛰️</span>
+            <h3>Outdoors &amp; Travel</h3>
+            <p>I love hiking, cycling, and traveling—especially the freedom of discovering a new route or place.</p>
+          </article>
+        </div>
       </section>
 
       <footer>

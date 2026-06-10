@@ -10,7 +10,8 @@ This repository contains my personal academic homepage. It is a static website b
 ├── styles.css                 # Layout, colors, typography, and responsive styles
 ├── script.js                  # Navigation highlighting and dynamic year
 ├── assets/
-│   └── profile-photo.jpg      # Profile photo
+│   ├── profile-photo-life.png # Current profile photo
+│   └── ssra-mda-overview.svg  # Publication thumbnail
 └── README.md                  # Maintenance guide
 ```
 
@@ -38,7 +39,7 @@ Open `index.html` and edit the content inside `<aside class="sidebar">`:
 - Email and social links
 - Short note below the social links
 
-Replace `assets/profile-photo.jpg` to update the profile photo. Keeping the same filename means no HTML change is needed.
+Replace `assets/profile-photo-life.png` to update the profile photo. Keeping the same filename means no HTML change is needed.
 
 ### Social Links
 
@@ -64,6 +65,23 @@ data-copy="elio2308"
 
 Replace `elio2308` with the new ID. The copy behavior and feedback message are implemented near the bottom of `script.js`.
 
+### RedNote and WeChat QR Codes
+
+Hovering over RedNote or WeChat displays a QR-code card. The current files are clearly marked placeholders:
+
+```text
+assets/rednote-qr.svg
+assets/wechat-qr.svg
+```
+
+Export your real QR codes from the corresponding apps and replace these files. If the real files are PNG or JPG images, update the matching `src` attributes in `index.html`, for example:
+
+```html
+<img src="assets/wechat-qr.png" alt="">
+```
+
+Keep QR images square and avoid excessive cropping or compression. WeChat still copies the ID when clicked.
+
 ### About Me and Research Interests
 
 Search for:
@@ -84,18 +102,36 @@ Search for `<section id="education">`. Update the university, degree, department
 
 To add another education entry, duplicate the complete `<article class="timeline-item">...</article>` block.
 
-### Publications and Awards
+### Publications
 
-The Publications and Honors & Awards sections currently contain placeholder cards.
-
-When real entries are available, replace the `.empty-state` block with normal HTML such as:
+Each publication uses a reusable `.publication` card with a thumbnail on the left and metadata on the right.
+To add another item, duplicate the complete block:
 
 ```html
-<article>
-  <h3>Publication or Award Title</h3>
-  <p>Authors, venue, year, or a short description.</p>
+<article class="publication">
+  <div class="publication-image">
+    <img src="assets/YOUR-IMAGE.png" alt="Description of the publication image">
+  </div>
+  <div class="publication-content">
+    <div class="publication-meta">
+      <span class="status-badge">Under Review</span>
+      <span>2026</span>
+    </div>
+    <h3>Paper Title</h3>
+    <p class="publication-authors"><strong>Your Name</strong>, Other Authors</p>
+    <p class="publication-venue">Journal or Conference and publication status.</p>
+  </div>
 </article>
 ```
+
+Store publication thumbnails in `assets/`. The current SSRA-MDA diagram is
+`assets/ssra-mda-overview.svg`.
+
+Use accurate status labels such as `Under Review`, `Accepted`, or `Published`. A submitted paper should not be described as published.
+
+### Honors and Awards
+
+Awards are stored in `<ol class="award-list">`. Duplicate a complete `<li>...</li>` entry and update its title, prize description, and date.
 
 ### Enabling News
 
