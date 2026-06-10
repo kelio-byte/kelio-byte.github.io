@@ -1,214 +1,167 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="陈峻堃的个人学术主页，包含研究方向、论文、经历与联系方式。">
+  <meta name="description" content="Personal homepage of Junkun Chen, an undergraduate student in Computer Science at Sichuan University.">
   <meta name="theme-color" content="#ffffff">
-  <title>陈峻堃 | Junkun Chen</title>
+  <title>Junkun Chen | Homepage</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="site-name" href="#top">Junkun Chen</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span class="sr-only">打开导航</span>
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="主导航">
-        <a href="#about">About</a>
+  <nav class="top-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="home-link" href="#top">Homepage</a>
+      <div class="nav-links">
+        <a href="#about">About Me</a>
+        <a href="#education">Educations</a>
+        <!-- Enable this link together with the commented News section below.
         <a href="#news">News</a>
+        -->
         <a href="#publications">Publications</a>
-        <a href="#experience">Experience</a>
-        <a href="#service">Service</a>
-      </nav>
+        <a href="#awards">Honors &amp; Awards</a>
+        <a href="#research-interests">Research Interests</a>
+        <a href="#personal-hobbies">Personal Hobbies</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main id="main">
-    <section class="profile section" id="top">
-      <div class="profile-photo" aria-label="个人照片占位区域">
-        <span>J C</span>
-        <!-- 使用个人照片时，将上面的 span 替换为：<img src="assets/profile.jpg" alt="陈峻堃"> -->
+  <div class="page-layout" id="top">
+    <aside class="sidebar" aria-label="Profile">
+      <img class="profile-photo" src="assets/profile-photo.jpg" alt="Portrait of Junkun Chen">
+
+      <div class="profile-heading">
+        <h1>Junkun Chen</h1>
+        <p class="name-cn">陈峻堃</p>
       </div>
 
-      <div class="profile-content" id="about">
-        <p class="name-en">Junkun Chen</p>
-        <h1>陈峻堃</h1>
-        <p class="position">博士研究生 / Researcher</p>
-        <p class="affiliation">
-          计算机科学与技术学院，某某大学<br>
-          你的实验室 / Your Research Lab
-        </p>
-        <div class="bio">
-          <p>
-            我是某某大学计算机科学与技术学院的博士研究生，导师为
-            <a href="#">某某教授</a>。我的研究兴趣包括
-            <strong>人工智能</strong>、<strong>机器学习</strong>和
-            <strong>人机交互</strong>，尤其关注如何构建可靠、高效且以人为本的智能系统。
-          </p>
-          <p>
-            此处可以用 2–3 句话介绍你的研究背景、当前课题以及长期目标。
-            如果你正在寻找实习、博士后或研究合作机会，也可以在这里说明。
-          </p>
-        </div>
-        <ul class="profile-links" aria-label="个人链接">
-          <li><a href="mailto:hello@example.com">Email</a></li>
-          <li><a href="https://scholar.google.com/">Google Scholar</a></li>
-          <li><a href="https://github.com/">GitHub</a></li>
-          <li><a href="#">CV</a></li>
-        </ul>
-      </div>
-    </section>
+      <p class="role">Undergraduate Student</p>
+      <p class="affiliation">
+        School of Computer Science<br>
+        Sichuan University
+      </p>
 
-    <section class="section content-section" id="news">
-      <h2>News</h2>
-      <div class="news-list">
-        <div class="news-item">
-          <time datetime="2026-05">2026.05</time>
-          <p>示例：一篇论文被某某会议接收。</p>
-        </div>
-        <div class="news-item">
-          <time datetime="2026-03">2026.03</time>
-          <p>示例：受邀在某某研讨会分享近期研究工作。</p>
-        </div>
-        <div class="news-item">
-          <time datetime="2025-12">2025.12</time>
-          <p>示例：开源研究项目和代码。</p>
-        </div>
-        <div class="news-item news-extra" hidden>
-          <time datetime="2025-09">2025.09</time>
-          <p>示例：加入某某实验室，开始新的研究课题。</p>
-        </div>
-      </div>
-      <button class="text-button" type="button" id="toggle-news" aria-expanded="false">显示更多</button>
-    </section>
-
-    <section class="section content-section" id="publications">
-      <div class="section-title-row">
-        <h2>Selected Publications</h2>
-        <p>* 表示共同一作</p>
-      </div>
-
-      <ol class="publication-list">
-        <li class="publication">
-          <div class="publication-preview preview-blue" aria-hidden="true">
-            <span>01</span>
-            <div class="preview-lines"></div>
-          </div>
-          <div class="publication-content">
-            <h3>论文题目：在这里填写你的代表性研究工作</h3>
-            <p class="authors"><strong>Junkun Chen</strong>, Collaborator A, Collaborator B</p>
-            <p class="venue">International Conference on Example Research (<strong>ICER</strong>), 2026</p>
-            <div class="publication-links">
-              <a href="#">Paper</a>
-              <a href="#">Code</a>
-              <a href="#">Project</a>
-            </div>
-          </div>
+      <ul class="contact-list" aria-label="Contact and social links">
+        <li>
+          <a href="mailto:elioakun86@gmail.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 6l9 7 9-7"></path></svg>
+            <span>Email</span>
+          </a>
         </li>
-
-        <li class="publication">
-          <div class="publication-preview preview-green" aria-hidden="true">
-            <span>02</span>
-            <div class="preview-circles"><i></i><i></i><i></i></div>
-          </div>
-          <div class="publication-content">
-            <h3>论文题目：一个可靠且高效的智能系统框架</h3>
-            <p class="authors">Collaborator A*, <strong>Junkun Chen*</strong>, Collaborator B</p>
-            <p class="venue">Journal of Example Systems (<strong>JES</strong>), 2025</p>
-            <div class="publication-links">
-              <a href="#">Paper</a>
-              <a href="#">Code</a>
-            </div>
-          </div>
+        <li>
+          <a href="https://github.com/kelio-byte" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.77c0 .27.18.58.69.48A10 10 0 0 0 12 2z"></path></svg>
+            <span>GitHub</span>
+          </a>
         </li>
-
-        <li class="publication">
-          <div class="publication-preview preview-gray" aria-hidden="true">
-            <span>03</span>
-            <div class="preview-chart"><i></i><i></i><i></i><i></i><i></i></div>
-          </div>
-          <div class="publication-content">
-            <h3>论文题目：面向真实场景的人机协作方法</h3>
-            <p class="authors"><strong>Junkun Chen</strong>, Collaborator A</p>
-            <p class="venue">Conference on Human-centered Computing (<strong>CHC</strong>), 2024</p>
-            <div class="publication-links">
-              <a href="#">Paper</a>
-              <a href="#">Demo</a>
-            </div>
-          </div>
+        <li>
+          <a href="https://scholar.google.com/" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-6 10 6-10 6zM6 12v5c3 2.7 9 2.7 12 0v-5M21 10v6"></path></svg>
+            <span>Google Scholar</span>
+          </a>
         </li>
-      </ol>
-      <p class="section-note">完整论文列表请访问 <a href="https://scholar.google.com/">Google Scholar</a>。</p>
-    </section>
-
-    <section class="section content-section" id="research">
-      <h2>Research Interests</h2>
-      <div class="interest-grid">
-        <article>
-          <h3>可信人工智能</h3>
-          <p>研究模型的可靠性、可解释性与安全性，推动智能系统在真实场景中的负责任应用。</p>
-        </article>
-        <article>
-          <h3>机器学习</h3>
-          <p>关注数据高效的学习方法、多模态建模，以及能够适应开放环境的通用模型。</p>
-        </article>
-        <article>
-          <h3>人机交互</h3>
-          <p>探索以人为本的智能交互，让人工智能系统更易理解、控制和协作。</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section content-section" id="experience">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-time">2024 — 至今</div>
-          <div>
-            <h3>某某大学</h3>
-            <p>计算机科学与技术 · 博士研究生</p>
-            <p class="detail">导师：某某教授</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">2022 — 2024</div>
-          <div>
-            <h3>某某科技有限公司</h3>
-            <p>研究实习生 · 智能系统组</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-time">2018 — 2022</div>
-          <div>
-            <h3>某某大学</h3>
-            <p>软件工程 · 工学学士</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section content-section" id="service">
-      <h2>Academic Service</h2>
-      <ul class="plain-list">
-        <li><span>审稿人</span> Conference / Journal Name, 2025–2026</li>
-        <li><span>助教</span> 课程名称，某某大学，2025</li>
-        <li><span>组织者</span> 某某学术研讨会，2024</li>
+        <li>
+          <a href="https://www.xiaohongshu.com/" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"></rect><path d="M7 9h10M7 13h7M7 17h4"></path></svg>
+            <span>RedNote</span>
+          </a>
+        </li>
+        <li>
+          <button class="contact-button" type="button" data-copy="elio2308" aria-label="Copy WeChat ID elio2308">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 10.5c0 3.6-3 6.5-6.7 6.5-1 0-1.9-.2-2.7-.6L2 18l1-2.8a6.2 6.2 0 0 1-1.8-4.4c0-3.6 3-6.5 6.7-6.5s6.6 2.7 6.6 6.2z"></path><path d="M10.5 13.5c.3 3 2.9 5.3 6.1 5.3.9 0 1.7-.2 2.4-.5l2.7 1.3-.8-2.4a5.5 5.5 0 0 0 1.6-3.8c0-3.2-2.7-5.8-6-5.8-.8 0-1.5.1-2.2.4"></path></svg>
+            <span class="contact-label">WeChat</span>
+          </button>
+        </li>
       </ul>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div>
-      <p>© <span id="year">2026</span> Junkun Chen</p>
-      <p>Last updated: June 2026</p>
-    </div>
-    <a href="#top">Back to top ↑</a>
-  </footer>
+      <p class="copy-feedback" role="status" aria-live="polite"></p>
+      <p class="contact-note">
+        Google Scholar and RedNote currently link to their platform homepages. Click WeChat to copy the ID.
+      </p>
+    </aside>
+
+    <main id="main">
+      <section id="about">
+        <h2><span aria-hidden="true">👋</span> About Me</h2>
+        <p>
+          Hello! I am Junkun Chen, a 2023-entry undergraduate student at the School of Computer Science,
+          Sichuan University. I am building a solid foundation in computer science while exploring areas
+          that connect intelligent systems with practical applications.
+        </p>
+        <p>
+          This website documents my education, projects, publications, and other milestones. More details
+          will be added as my studies progress.
+        </p>
+
+        <div class="subsection" id="research-interests">
+          <h3><span aria-hidden="true">💡</span> Research Interests</h3>
+          <p>
+            My current interests include artificial intelligence, machine learning, software development,
+            and using technology to solve real-world problems. These interests are still evolving as I gain
+            more research and project experience.
+          </p>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2><span aria-hidden="true">📖</span> Educations</h2>
+        <article class="timeline-item">
+          <div>
+            <h3>Sichuan University</h3>
+            <p>Undergraduate Student, School of Computer Science</p>
+          </div>
+          <time datetime="2023">2023 – Present</time>
+        </article>
+      </section>
+
+      <!-- NEWS SECTION: remove this comment wrapper and enable the News navigation link above when needed.
+      <section id="news">
+        <h2><span aria-hidden="true">📢</span> News</h2>
+        <ul class="news-list">
+          <li>
+            <time datetime="2026-06">Jun 2026</time>
+            <span>Personal homepage redesigned and updated.</span>
+          </li>
+          <li class="placeholder">
+            <time>Coming soon</time>
+            <span>Future academic and project updates will be posted here.</span>
+          </li>
+        </ul>
+      </section>
+      END NEWS SECTION -->
+
+      <section id="publications">
+        <h2><span aria-hidden="true">📝</span> Publications</h2>
+        <div class="empty-state">
+          <p>No publications yet.</p>
+          <span>This section will be updated with future research work.</span>
+        </div>
+      </section>
+
+      <section id="awards">
+        <h2><span aria-hidden="true">🏆</span> Honors &amp; Awards</h2>
+        <div class="empty-state">
+          <p>No entries yet.</p>
+          <span>Academic honors, scholarships, and competition awards will appear here.</span>
+        </div>
+      </section>
+
+      <section id="personal-hobbies">
+        <h2><span aria-hidden="true">🌿</span> Personal Hobbies</h2>
+        <p>
+          Outside of academics, I enjoy working out, singing, hiking, and traveling.
+          These activities help me stay energetic, explore new places, and maintain a balanced lifestyle.
+        </p>
+      </section>
+
+      <footer>
+        <p>© <span id="year">2026</span> Junkun Chen. Last updated: June 2026.</p>
+        <a href="#top">Back to top ↑</a>
+      </footer>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>

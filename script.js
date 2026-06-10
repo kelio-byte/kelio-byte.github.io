@@ -1,41 +1,46 @@
-const navToggle = document.querySelector('.nav-toggle');
-const navigation = document.querySelector('.site-nav');
+const navLinks = [...document.querySelectorAll('.nav-links a')];
+const observedSections = [
+  ...document.querySelectorAll('main > section[id], #research-interests'),
+];
 
-navToggle.addEventListener('click', () => {
-  const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!isOpen));
-  navigation.classList.toggle('open', !isOpen);
-});
+if ('IntersectionObserver' in window) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
 
-navigation.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    navigation.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
-
-const newsToggle = document.querySelector('#toggle-news');
-const extraNews = document.querySelector('.news-extra');
-
-newsToggle.addEventListener('click', () => {
-  const isExpanded = newsToggle.getAttribute('aria-expanded') === 'true';
-  newsToggle.setAttribute('aria-expanded', String(!isExpanded));
-  extraNews.hidden = isExpanded;
-  newsToggle.textContent = isExpanded ? '显示更多' : '收起';
-});
-
-const sections = [...document.querySelectorAll('main section[id]')];
-const navLinks = [...navigation.querySelectorAll('a')];
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    const currentId = entry.target.id === 'top' ? 'about' : entry.target.id;
-    navLinks.forEach((link) => {
-      link.classList.toggle('active', link.hash === `#${currentId}`);
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.hash === `#${entry.target.id}`);
+      });
     });
-  });
-}, { rootMargin: '-20% 0px -70%', threshold: 0 });
+  }, { rootMargin: '-20% 0px -70%', threshold: 0 });
 
-sections.forEach((section) => sectionObserver.observe(section));
+  observedSections.forEach((section) => sectionObserver.observe(section));
+}
+
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+const copyButton = document.querySelector('[data-copy]');
+const copyFeedback = document.querySelector('.copy-feedback');
+
+copyButton.addEventListener('click', async () => {
+  const value = copyButton.dataset.copy;
+
+  try {
+    await navigator.clipboard.writeText(value);
+    copyFeedback.textContent = `WeChat ID copied: ${value}`;
+  } catch {
+    const textArea = document.createElement('textarea');
+    textArea.value = value;
+    textArea.setAttribute('readonly', '');
+    textArea.style.position = 'fixed';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    const copied = document.execCommand('copy');
+    textArea.remove();
+    copyFeedback.textContent = copied
+      ? `WeChat ID copied: ${value}`
+      : `WeChat ID: ${value}`;
+  }
+});
