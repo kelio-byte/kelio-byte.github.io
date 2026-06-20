@@ -404,6 +404,14 @@ p {
   font-size: 14px;
 }
 
+.timeline-item-no-logo {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.timeline-item-no-logo .education-content {
+  padding-left: 0;
+}
+
 .publication {
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
@@ -844,6 +852,14 @@ footer p {
   .timeline-item time {
     grid-column: 2;
     padding-top: 0;
+  }
+
+  .timeline-item-no-logo {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item-no-logo time {
+    grid-column: 1;
   }
 
   .publication {
