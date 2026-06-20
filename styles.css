@@ -446,6 +446,12 @@ p {
   font-weight: 700;
 }
 
+.project-badge {
+  color: #8b5e14;
+  background: #fef4e6;
+  border-color: #e8cc8f;
+}
+
 .publication h3 {
   font-family: var(--serif);
   font-size: 17px;
@@ -460,6 +466,79 @@ p {
 
 .publication-venue {
   color: var(--muted);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.project-card:last-child {
+  margin-bottom: 0;
+}
+
+.project-card-top {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.project-card .publication-image {
+  display: grid;
+  place-items: center;
+  min-height: 170px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.project-card .publication-image img {
+  width: 100%;
+  max-height: 170px;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.project-card-info h3 {
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.project-time {
+  margin-left: auto;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 13.5px;
+}
+
+.project-card .publication-venue {
+  margin: 6px 0 0;
+}
+
+.project-download {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.project-download a {
+  font-weight: 600;
+}
+
+.project-description {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: #46525c;
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 .award-list {
@@ -687,6 +766,15 @@ footer p {
     grid-template-columns: 180px minmax(0, 1fr);
   }
 
+  .project-card {
+    padding: 20px;
+  }
+
+  .project-card-top {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 22px;
+  }
+
   .hobby-grid {
     grid-template-columns: 1fr;
   }
@@ -764,6 +852,24 @@ footer p {
 
   .publication-image {
     max-width: 280px;
+  }
+
+  .project-card {
+    padding: 18px;
+  }
+
+  .project-card-top {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card .publication-image {
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .project-card .publication-image img {
+    max-height: none;
   }
 
   .award-list li {

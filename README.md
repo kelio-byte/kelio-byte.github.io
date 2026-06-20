@@ -130,6 +130,28 @@ Store publication thumbnails in `assets/`. The current SSRA-MDA diagram is
 
 Use accurate status labels such as `Under Review`, `Accepted`, or `Published`. A submitted paper should not be described as published.
 
+### Projects
+
+Projects use the same card layout as Publications. Add images to `papers/` or `assets/`, then duplicate this structure inside `<section id="projects">`:
+
+```html
+<article class="publication project-card">
+  <div class="publication-image">
+    <img src="papers/YOUR-PROJECT-IMAGE.png" alt="Project image description">
+  </div>
+  <div class="publication-content">
+    <div class="publication-meta">
+      <span class="status-badge project-badge">Project Type</span>
+    </div>
+    <h3>Project Title</h3>
+    <p class="publication-venue">Program, lab, or organization.</p>
+    <p class="project-description">Short project description.</p>
+  </div>
+</article>
+```
+
+The current sample project image is `papers/DTI.png`.
+
 ### Honors and Awards
 
 Awards are stored in `<ol class="award-list">`. Duplicate a complete `<li>...</li>` entry and update its title, prize description, and date.
