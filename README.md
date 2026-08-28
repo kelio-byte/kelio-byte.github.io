@@ -10,8 +10,17 @@ This repository contains my personal academic homepage. It is a static website b
 ├── styles.css                 # Layout, colors, typography, and responsive styles
 ├── script.js                  # Navigation highlighting and dynamic year
 ├── assets/
-│   ├── profile-photo-life.png # Current profile photo
-│   └── ssra-mda-overview.svg  # Publication thumbnail
+│   ├── profile-photo-life.png  # Current profile photo
+│   ├── profile-photo-professional.jpg
+│   ├── QR-rednote.jpg           # RedNote QR code
+│   ├── QR-wechat.jpg            # WeChat QR code
+│   ├── logo-SCU.png             # Sichuan University logo
+│   └── logo-CAS.png             # Chinese Academy of Sciences logo
+├── papers/
+│   ├── SSRA-MDA.png             # Publication thumbnail
+│   ├── DTI.png                  # Drug discovery project thumbnail
+│   ├── math_model.png           # Mathematical modeling project thumbnail
+│   └── property.png             # Smart agriculture project thumbnail
 └── README.md                  # Maintenance guide
 ```
 
@@ -67,11 +76,11 @@ Replace `elio2308` with the new ID. The copy behavior and feedback message are i
 
 ### RedNote and WeChat QR Codes
 
-Hovering over RedNote or WeChat displays a QR-code card. The current files are clearly marked placeholders:
+Hovering over RedNote or WeChat displays a QR-code card. The current files are:
 
 ```text
-assets/rednote-qr.svg
-assets/wechat-qr.svg
+assets/QR-rednote.jpg
+assets/QR-wechat.jpg
 ```
 
 Export your real QR codes from the corresponding apps and replace these files. If the real files are PNG or JPG images, update the matching `src` attributes in `index.html`, for example:
@@ -125,28 +134,30 @@ To add another item, duplicate the complete block:
 </article>
 ```
 
-Store publication thumbnails in `assets/`. The current SSRA-MDA diagram is
-`assets/ssra-mda-overview.svg`.
+Store publication thumbnails in `papers/`. The current SSRA-MDA diagram is
+`papers/SSRA-MDA.png`.
 
 Use accurate status labels such as `Under Review`, `Accepted`, or `Published`. A submitted paper should not be described as published.
 
 ### Projects
 
-Projects use the same card layout as Publications. Add images to `papers/` or `assets/`, then duplicate this structure inside `<section id="projects">`:
+Projects use a card layout with a thumbnail, metadata, and description. Add images to `papers/`, then duplicate this structure inside `<section id="projects">`:
 
 ```html
-<article class="publication project-card">
-  <div class="publication-image">
-    <img src="papers/YOUR-PROJECT-IMAGE.png" alt="Project image description">
-  </div>
-  <div class="publication-content">
-    <div class="publication-meta">
-      <span class="status-badge project-badge">Project Type</span>
+<article class="project-card">
+  <div class="project-card-top">
+    <div class="publication-image">
+      <img src="papers/YOUR-PROJECT-IMAGE.png" alt="Project image description">
     </div>
-    <h3>Project Title</h3>
-    <p class="publication-venue">Program, lab, or organization.</p>
-    <p class="project-description">Short project description.</p>
+    <div class="project-card-info">
+      <div class="publication-meta">
+        <span class="status-badge project-badge">Project Type</span>
+      </div>
+      <h3>Project Title</h3>
+      <p class="publication-venue">Program, lab, or organization.</p>
+    </div>
   </div>
+  <p class="project-description">Short project description.</p>
 </article>
 ```
 
@@ -170,7 +181,7 @@ The News section is already positioned before Publications.
 
 ### Personal Hobbies
 
-Search for `<section id="personal-hobbies">` and edit the paragraph. The current hobbies are working out, singing, hiking, and traveling.
+Search for `<section id="personal-hobbies">` and edit the paragraph. The current hobbies are singing, fitness, hiking, and traveling.
 
 ### Navigation
 

@@ -1,46 +1,102 @@
-const navLinks = [...document.querySelectorAll('.nav-links a')];
-const observedSections = [
-  ...document.querySelectorAll('main > section[id], #research-interests'),
-];
+const NAV_LINK_SELECTOR = '.nav-links a[href^="#"]';
+const SECTION_SELECTOR = 'main > section[id], #research-interests';
 
-if ('IntersectionObserver' in window) {
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
+const navLinks = [...document.querySelectorAll(NAV_LINK_SELECTOR)];
+const observedSections = [...document.querySelectorAll(SECTION_SELECTOR)];
 
-      navLinks.forEach((link) => {
-        link.classList.toggle('active', link.hash === `#${entry.target.id}`);
-      });
-    });
-  }, { rootMargin: '-20% 0px -70%', threshold: 0 });
+function setActiveSection(sectionId) {
+  navLinks.forEach((link) => {
+    const isActive = link.hash === `#${sectionId}`;
 
-  observedSections.forEach((section) => sectionObserver.observe(section));
+    link.classList.toggle('active', isActive);
+
+    if (isActive) {
+      link.setAttribute('aria-current', 'location');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
 }
 
-document.querySelector('#year').textContent = new Date().getFullYear();
+function getSectionTop(section) {
+  return section.getBoundingClientRect().top + window.scrollY;
+}
+
+function updateActiveSection() {
+  if (!observedSections.length || !navLinks.length) return;
+
+  const markerPosition = window.scrollY + window.innerHeight * 0.25;
+  let currentSection = observedSections[0];
+
+  observedSections.forEach((section) => {
+    if (getSectionTop(section) <= markerPosition) {
+      currentSection = section;
+    }
+  });
+
+  setActiveSection(currentSection.id);
+}
+
+let updateScheduled = false;
+
+function scheduleActiveSectionUpdate() {
+  if (updateScheduled) return;
+
+  updateScheduled = true;
+  window.requestAnimationFrame(() => {
+    updateScheduled = false;
+    updateActiveSection();
+  });
+}
+
+window.addEventListener('scroll', scheduleActiveSectionUpdate, { passive: true });
+window.addEventListener('resize', scheduleActiveSectionUpdate);
+window.addEventListener('load', updateActiveSection);
+updateActiveSection();
+
+const yearElement = document.querySelector('#year');
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
 
 const copyButton = document.querySelector('[data-copy]');
 const copyFeedback = document.querySelector('.copy-feedback');
 
-copyButton.addEventListener('click', async () => {
-  const value = copyButton.dataset.copy;
+async function copyText(value) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return true;
+  }
+
+  const textArea = document.createElement('textarea');
+  textArea.value = value;
+  textArea.setAttribute('readonly', '');
+  textArea.style.position = 'fixed';
+  textArea.style.opacity = '0';
+  document.body.appendChild(textArea);
+  textArea.select();
 
   try {
-    await navigator.clipboard.writeText(value);
-    copyFeedback.textContent = `WeChat ID copied: ${value}`;
-  } catch {
-    const textArea = document.createElement('textarea');
-    textArea.value = value;
-    textArea.setAttribute('readonly', '');
-    textArea.style.position = 'fixed';
-    textArea.style.opacity = '0';
-    document.body.appendChild(textArea);
-    textArea.select();
-
-    const copied = document.execCommand('copy');
+    return document.execCommand('copy');
+  } finally {
     textArea.remove();
-    copyFeedback.textContent = copied
-      ? `WeChat ID copied: ${value}`
-      : `WeChat ID: ${value}`;
   }
-});
+}
+
+if (copyButton && copyFeedback) {
+  copyButton.addEventListener('click', async () => {
+    const value = copyButton.dataset.copy;
+
+    if (!value) return;
+
+    try {
+      const copied = await copyText(value);
+      copyFeedback.textContent = copied
+        ? `WeChat ID copied: ${value}`
+        : `WeChat ID: ${value}`;
+    } catch {
+      copyFeedback.textContent = `WeChat ID: ${value}`;
+    }
+  });
+}
